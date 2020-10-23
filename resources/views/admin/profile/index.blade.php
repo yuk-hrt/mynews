@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title', '登録済みプロフィールの一覧')
+@section('title', 'プロフィールの一覧')
 
 @section('content')
     <div class="container">
@@ -35,7 +35,8 @@
                                 <th width="10%">名前</th>
                                 <th width="10%">性別</th>
                                 <th width="20%">趣味</th>
-                                <th width="50%">自己紹介</th>
+                                <th width="40%">自己紹介</th>
+                                <th width="10%">操作</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +47,14 @@
                                     <td>{{ Str::limit($profile->gender, 20) }}</td>
                                     <td>{{ Str::limit($profile->hobby, 100) }}</td>
                                     <td>{{ Str::limit($profile->introduction, 250) }}</td>
+                                    <td>
+                                      <div>
+                                          <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
+                                      </div>
+                                      <div>
+                                          <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
+                                      </div>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>
