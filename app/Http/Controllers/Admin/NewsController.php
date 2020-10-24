@@ -40,7 +40,7 @@ class NewsController extends Controller
     $news->fill($form);
     $news->save();
 
-    return redirect('admin/news/create');
+    return redirect('admin/news');
   }  
 
   public function index(Request $request)
